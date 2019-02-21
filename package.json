@@ -1,0 +1,33 @@
+{
+    "name": "@lrc-maker/lrc-parser",
+    "description": "lrc-parser for lrc-maker",
+    "version": "0.0.1",
+    "repository": "https://github.com/magic-akari/lrc-maker.git",
+    "author": "阿卡琳 <hufan.akarin@Gmail.com>",
+    "license": "MIT",
+    "keywords": [
+        "lrc",
+        "lrc parser"
+    ],
+    "bugs": "https://github.com/magic-akari/lrc-maker/issues",
+    "homepage": "https://github.com/magic-akari/lrc-maker#readme",
+    "main": "./build/lrc-parser.js",
+    "files": [
+        "src",
+        "build"
+    ],
+    "scripts": {
+        "build": "tsc",
+        "prettier": "prettier --write src/**/*.ts *.{json,md}",
+        "listdiff": "prettier -l src/**/*.ts *.{json,md}",
+        "lint": "tslint src/**/*.ts"
+    },
+    "devDependencies": {
+        "prettier": "^1.16.4",
+        "tslint": "^5.12.1",
+        "typescript": "^3.3.3"
+    },
+    "publishConfig": {
+        "access": "public"
+    }
+}

@@ -1,0 +1,25 @@
+language: node_js
+node_js: node
+
+script:
+    - npm run listdiff
+    - npm run lint
+    - npm run build
+
+deploy:
+    - provider: npm
+      skip-cleanup: true
+      email: $NPM_EMAIL
+      api_key: $NPM_AUTH_TOKEN
+      on:
+          branch: lrc-parser
+          tags: false
+      tag: next
+
+    - provider: npm
+      skip-cleanup: true
+      email: $NPM_EMAIL
+      api_key: $NPM_AUTH_TOKEN
+      on:
+          branch: lrc-parser
+          tags: true
