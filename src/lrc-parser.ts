@@ -18,7 +18,14 @@ export type State = Readonly<{
     lyric: Array<Readonly<ILyric>>;
 }>;
 
-export const parser = (lrcString: string): State => {
+export type TrimOptios = Partial<{
+    trimStart: boolean;
+    trimEnd: boolean;
+}>;
+
+export const parser = (lrcString: string, option: TrimOptios = {}): State => {
+    const { trimStart = false, trimEnd = false } = option;
+
     const lines = lrcString.split(/\r\n|\n|\r/);
 
     const timeTag = /\[\s*(\d{1,3}):(\d{1,2}(?:[:.]\d{1,3})?)\s*]/y;
@@ -69,6 +76,17 @@ export const parser = (lrcString: string): State => {
 
         lyric.push({
             text: line,
+        });
+    }
+
+    if (trimStart || trimEnd) {
+        lyric.forEach((line) => {
+            if (trimStart) {
+                line.text = line.text.trimStart();
+            }
+            if (trimEnd) {
+                line.text = line.text.trimEnd();
+            }
         });
     }
 
