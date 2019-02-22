@@ -18,12 +18,19 @@
     ],
     "scripts": {
         "build": "tsc",
+        "test": "TS_NODE_COMPILER_OPTIONS='{ \"module\": \"commonjs\" }' mocha -r ts-node/register test/**/*.test.ts",
         "prettier": "prettier --write src/**/*.ts *.{json,md}",
         "listdiff": "prettier -l src/**/*.ts *.{json,md}",
         "lint": "tslint src/**/*.ts"
     },
     "devDependencies": {
+        "@types/chai": "^4.1.7",
+        "@types/mocha": "^5.2.6",
+        "@types/node": "^11.9.4",
+        "chai": "^4.2.0",
+        "mocha": "^6.0.1",
         "prettier": "^1.16.4",
+        "ts-node": "^8.0.2",
         "tslint": "^5.12.1",
         "typescript": "^3.3.3"
     },
