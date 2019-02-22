@@ -1,7 +1,7 @@
 {
     "name": "@lrc-maker/lrc-parser",
     "description": "lrc-parser for lrc-maker",
-    "version": "0.0.1",
+    "version": "0.1.0",
     "repository": "https://github.com/magic-akari/lrc-maker.git",
     "author": "阿卡琳 <hufan.akarin@Gmail.com>",
     "license": "MIT",
