@@ -2,15 +2,15 @@
     "name": "@lrc-maker/lrc-parser",
     "description": "lrc-parser for lrc-maker",
     "version": "0.1.0",
-    "repository": "https://github.com/magic-akari/lrc-maker.git",
-    "author": "阿卡琳 <hufan.akarin@Gmail.com>",
+    "repository": "https://github.com/lrc-maker/lrc-parser.git",
+    "author": "magic-akari <hufan.akarin@gmail.com>",
     "license": "MIT",
     "keywords": [
         "lrc",
         "lrc parser"
     ],
-    "bugs": "https://github.com/magic-akari/lrc-maker/issues",
-    "homepage": "https://github.com/magic-akari/lrc-maker#readme",
+    "bugs": "https://github.com/lrc-maker/lrc-parser/issues",
+    "homepage": "https://github.com/lrc-maker/lrc-parser#readme",
     "main": "./build/lrc-parser.js",
     "files": [
         "src",
