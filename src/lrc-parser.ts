@@ -15,7 +15,7 @@ export interface ILyric {
 
 export type State = Readonly<{
     info: Map<string, string>;
-    lyric: Array<Readonly<ILyric>>;
+    lyric: readonly ILyric[];
 }>;
 
 export type TrimOptios = Partial<{
