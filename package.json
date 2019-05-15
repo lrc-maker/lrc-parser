@@ -11,13 +11,21 @@
     ],
     "bugs": "https://github.com/lrc-maker/lrc-parser/issues",
     "homepage": "https://github.com/lrc-maker/lrc-parser#readme",
-    "main": "./build/lrc-parser.js",
+    "main": "./build/es5/lrc-parser.js",
+    "umd:main": "./build/umd/lrc-parser.js",
+    "module": "./build/esm/lrc-parser.js",
+    "browser": "./build/es5/lrc-parser.min.js",
+    "types": "./build/esm/lrc-parser.d.ts",
     "files": [
         "src",
         "build"
     ],
     "scripts": {
-        "build": "tsc",
+        "build": "npm run esm && npm run umd && npm run es6 && npm run es5",
+        "esm": "tsc --outDir build/esm",
+        "umd": "tsc -m umd --outDir build/umd",
+        "es6": "tsc -m umd -t es2015 --outDir build/es6",
+        "es5": "tsc -m umd -t es5 --outDir build/es5",
         "test": "TS_NODE_COMPILER_OPTIONS='{ \"module\": \"commonjs\" }' mocha -r ts-node/register test/**/*.test.ts",
         "prettier": "prettier --write src/**/*.ts *.{json,md}",
         "listdiff": "prettier -l src/**/*.ts *.{json,md}",
