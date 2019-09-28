@@ -1,7 +1,7 @@
 {
     "name": "@lrc-maker/lrc-parser",
     "description": "lrc-parser for lrc-maker",
-    "version": "0.1.5",
+    "version": "0.1.6",
     "repository": "https://github.com/lrc-maker/lrc-parser.git",
     "author": "magic-akari <hufan.akarin@gmail.com>",
     "license": "MIT",
@@ -30,17 +30,17 @@
         "lint": "tslint src/**/*.ts"
     },
     "devDependencies": {
-        "@types/chai": "^4.1.7",
-        "@types/mocha": "^5.2.6",
-        "@types/node": "^12.0.2",
+        "@types/chai": "^4.2.3",
+        "@types/mocha": "^5.2.7",
+        "@types/node": "^12.7.8",
         "chai": "^4.2.0",
-        "mocha": "^6.1.4",
-        "prettier": "^1.17.1",
-        "rollup": "^1.12.0",
-        "rollup-plugin-typescript2": "^0.21.0",
-        "ts-node": "^8.1.0",
-        "tslint": "^5.16.0",
-        "typescript": "^3.4.5"
+        "mocha": "^6.2.0",
+        "prettier": "^1.18.2",
+        "rollup": "^1.21.4",
+        "rollup-plugin-typescript2": "^0.24.3",
+        "ts-node": "^8.4.1",
+        "tslint": "^5.20.0",
+        "typescript": "^3.6.3"
     },
     "publishConfig": {
         "access": "public"
