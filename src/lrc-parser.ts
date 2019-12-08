@@ -103,6 +103,7 @@ const getFormatter = (fixed: Fixed) => {
             minimumIntegerDigits: 2,
             minimumFractionDigits: fixed,
             maximumFractionDigits: fixed,
+            useGrouping: false,
         });
         storedFormaTter.set(fixed, newFormatter);
         return newFormatter;
