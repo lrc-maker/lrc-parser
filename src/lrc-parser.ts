@@ -93,11 +93,11 @@ export const parser = (lrcString: string, option: TrimOptios = {}): State => {
     return { info, lyric };
 };
 
-const storedFormaTter = new Map<Fixed, Intl.NumberFormat>();
+const storedFormatter = new Map<Fixed, Intl.NumberFormat>();
 
 const getFormatter = (fixed: Fixed) => {
-    if (storedFormaTter.has(fixed)) {
-        return storedFormaTter.get(fixed)!;
+    if (storedFormatter.has(fixed)) {
+        return storedFormatter.get(fixed)!;
     } else {
         const newFormatter = new Intl.NumberFormat("en", {
             minimumIntegerDigits: 2,
@@ -105,7 +105,7 @@ const getFormatter = (fixed: Fixed) => {
             maximumFractionDigits: fixed,
             useGrouping: false,
         });
-        storedFormaTter.set(fixed, newFormatter);
+        storedFormatter.set(fixed, newFormatter);
         return newFormatter;
     }
 };
