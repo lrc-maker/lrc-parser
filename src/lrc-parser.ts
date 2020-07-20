@@ -1,5 +1,4 @@
 declare global {
-    // tslint:disable-next-line: interface-name
     interface String {
         trimStart(): string;
         trimEnd(): string;
@@ -97,6 +96,7 @@ const storedFormatter = new Map<Fixed, Intl.NumberFormat>();
 
 const getFormatter = (fixed: Fixed) => {
     if (storedFormatter.has(fixed)) {
+        // eslint-disable-next-line @typescript-eslint/no-non-null-assertion
         return storedFormatter.get(fixed)!;
     } else {
         const newFormatter = new Intl.NumberFormat("en", {
@@ -110,7 +110,7 @@ const getFormatter = (fixed: Fixed) => {
     }
 };
 
-export const convertTimeToTag = (time: number | undefined, fixed: Fixed, withBrackets = true) => {
+export const convertTimeToTag = (time: number | undefined, fixed: Fixed, withBrackets = true): string => {
     if (time === undefined) {
         return "";
     }
@@ -125,7 +125,7 @@ export const convertTimeToTag = (time: number | undefined, fixed: Fixed, withBra
     return withBrackets ? `[${mm}:${ss}]` : `${mm}:${ss}`;
 };
 
-export const formatText = (text: string, spaceStart: number, spaceEnd: number) => {
+export const formatText = (text: string, spaceStart: number, spaceEnd: number): string => {
     let newText = text;
     if (spaceStart >= 0) {
         newText = " ".repeat(spaceStart) + newText.trimStart();
