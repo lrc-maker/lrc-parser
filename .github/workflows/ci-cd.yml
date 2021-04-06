@@ -10,11 +10,14 @@ jobs:
             - uses: actions/setup-node@v1
               with:
                   node-version: 14
-            - run: npm ci
-            - run: npm run listdiff
-            - run: npm run lint
-            - run: npm run test
-            - run: npm run build
+            - uses: pnpm/action-setup@v1.2.1
+              with:
+                  version: 5.18.9
+                  run_install: true
+            - run: pnpm run listdiff
+            - run: pnpm run lint
+            - run: pnpm run test
+            - run: pnpm run build
 
     publish-npm:
         needs: build
@@ -26,9 +29,12 @@ jobs:
               with:
                   node-version: 14
                   registry-url: https://registry.npmjs.org/
-            - run: npm ci
-            - run: npm run build
-            - run: npm publish
+            - uses: pnpm/action-setup@v1.2.1
+              with:
+                  version: 6.0.0
+                  run_install: true
+            - run: pnpm run build
+            - run: pnpm publish
               env:
                   NODE_AUTH_TOKEN: ${{secrets.NPM_TOKEN}}
 
@@ -42,8 +48,11 @@ jobs:
               with:
                   node-version: 14
                   registry-url: https://npm.pkg.github.com/
-            - run: npm ci
-            - run: npm run build
-            - run: npm publish
+            - uses: pnpm/action-setup@v1.2.1
+              with:
+                  version: 6.0.0
+                  run_install: true
+            - run: pnpm run build
+            - run: pnpm publish
               env:
                   NODE_AUTH_TOKEN: ${{secrets.GITHUB_TOKEN}}

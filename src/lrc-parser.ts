@@ -23,14 +23,15 @@ export type TrimOptios = Partial<{
 }>;
 
 export const parser = (lrcString: string, option: TrimOptios = {}): State => {
+    // eslint-disable-next-line @typescript-eslint/naming-convention
     const { trimStart = false, trimEnd = false } = option;
 
-    const lines = lrcString.split(/\r\n|\n|\r/);
+    const lines = lrcString.split(/\r\n|\n|\r/u);
 
-    const timeTag = /\[\s*(\d{1,3}):(\d{1,2}(?:[:.]\d{1,3})?)\s*]/g;
-    const infoTag = /\[\s*(\w{1,6})\s*:(.*?)]/;
+    const timeTag = /\[\s*(\d{1,3}):(\d{1,2}(?:[:.]\d{1,3})?)\s*]/gu;
+    const infoTag = /\[\s*(\w{1,6})\s*:(.*?)]/u;
 
-    const info: Map<string, string> = new Map();
+    const info = new Map<string, string>();
     const lyric: ILyric[] = [];
 
     for (const line of lines) {
@@ -98,16 +99,15 @@ const getFormatter = (fixed: Fixed) => {
     if (storedFormatter.has(fixed)) {
         // eslint-disable-next-line @typescript-eslint/no-non-null-assertion
         return storedFormatter.get(fixed)!;
-    } else {
-        const newFormatter = new Intl.NumberFormat("en", {
-            minimumIntegerDigits: 2,
-            minimumFractionDigits: fixed,
-            maximumFractionDigits: fixed,
-            useGrouping: false,
-        });
-        storedFormatter.set(fixed, newFormatter);
-        return newFormatter;
     }
+    const newFormatter = new Intl.NumberFormat("en", {
+        minimumIntegerDigits: 2,
+        minimumFractionDigits: fixed,
+        maximumFractionDigits: fixed,
+        useGrouping: false,
+    });
+    storedFormatter.set(fixed, newFormatter);
+    return newFormatter;
 };
 
 export const convertTimeToTag = (time: number | undefined, fixed: Fixed, withBrackets = true): string => {
