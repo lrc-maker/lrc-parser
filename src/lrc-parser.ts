@@ -1,10 +1,3 @@
-declare global {
-    interface String {
-        trimStart(): string;
-        trimEnd(): string;
-    }
-}
-
 export type Fixed = 0 | 1 | 2 | 3;
 
 export interface ILyric {
