@@ -28,8 +28,8 @@ export const parser = (lrcString: string, option: TrimOptios = {}): State => {
 
     const lines = lrcString.split(/\r\n|\n|\r/u);
 
-    const timeTag = /\[\s*(\d{1,3}):(\d{1,2}(?:[:.]\d{1,3})?)\s*]/gu;
-    const infoTag = /\[\s*(\w{1,6})\s*:(.*?)]/u;
+    const timeTag = /\[\s*(\d{1,3}):(\d{1,2}(?:[:.]\d{1,3})?)\s*]/g;
+    const infoTag = /\[\s*(\w{1,6})\s*:(.*?)]/;
 
     const info = new Map<string, string>();
     const lyric: ILyric[] = [];

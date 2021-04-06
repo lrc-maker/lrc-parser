@@ -62,7 +62,6 @@ typings/
 
 build
 
-.vscode
 .rpt2_cache
 
 .DS_Store
