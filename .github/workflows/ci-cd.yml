@@ -37,7 +37,7 @@ jobs:
                   version: 5.18.9
                   run_install: true
             - run: pnpm run build
-            - run: pnpm publish
+            - run: npm publish
               env:
                   NODE_AUTH_TOKEN: ${{secrets.NPM_TOKEN}}
 
@@ -56,6 +56,6 @@ jobs:
                   version: 5.18.9
                   run_install: true
             - run: pnpm run build
-            - run: pnpm publish
+            - run: npm publish
               env:
                   NODE_AUTH_TOKEN: ${{secrets.GITHUB_TOKEN}}
