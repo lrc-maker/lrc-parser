@@ -34,7 +34,7 @@ jobs:
                   registry-url: https://registry.npmjs.org/
             - uses: pnpm/action-setup@v1.2.1
               with:
-                  version: 6.0.0
+                  version: 5.18.9
                   run_install: true
             - run: pnpm run build
             - run: pnpm publish
@@ -53,7 +53,7 @@ jobs:
                   registry-url: https://npm.pkg.github.com/
             - uses: pnpm/action-setup@v1.2.1
               with:
-                  version: 6.0.0
+                  version: 5.18.9
                   run_install: true
             - run: pnpm run build
             - run: pnpm publish
