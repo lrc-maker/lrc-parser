@@ -1,3 +1,11 @@
 {
-    "deno.enable": true
+    "deno.enable": true,
+    "deno.enablePaths": [
+        "src",
+        "test"
+    ],
+    "[typescript]": {
+        "editor.defaultFormatter": "dprint.dprint"
+    },
+    "editor.formatOnSave": true
 }

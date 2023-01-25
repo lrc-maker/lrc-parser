@@ -16,7 +16,6 @@ export type TrimOptios = Partial<{
 }>;
 
 export const parser = (lrcString: string, option: TrimOptios = {}): State => {
-    // eslint-disable-next-line @typescript-eslint/naming-convention
     const { trimStart = false, trimEnd = false } = option;
 
     const lines = lrcString.split(/\r\n|\n|\r/u);
@@ -28,6 +27,7 @@ export const parser = (lrcString: string, option: TrimOptios = {}): State => {
     const lyric: ILyric[] = [];
 
     for (const line of lines) {
+        // eslint-disable-next-line @typescript-eslint/prefer-string-starts-ends-with
         if (line[0] !== "[") {
             lyric.push({
                 text: line,
@@ -72,14 +72,17 @@ export const parser = (lrcString: string, option: TrimOptios = {}): State => {
         });
     }
 
-    if (trimStart || trimEnd) {
+    if (trimStart && trimEnd) {
         lyric.forEach((line) => {
-            if (trimStart) {
-                line.text = line.text.trimStart();
-            }
-            if (trimEnd) {
-                line.text = line.text.trimEnd();
-            }
+            line.text = line.text.trim();
+        });
+    } else if (trimStart) {
+        lyric.forEach((line) => {
+            line.text = line.text.trimStart();
+        });
+    } else if (trimEnd) {
+        lyric.forEach((line) => {
+            line.text = line.text.trimEnd();
         });
     }
 
