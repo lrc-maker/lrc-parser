@@ -1,0 +1,49 @@
+{
+    "name": "@lrc-maker/lrc-parser",
+    "description": "lrc-parser for lrc-maker",
+    "version": "0.1.17",
+    "repository": "https://github.com/lrc-maker/lrc-parser.git",
+    "author": "magic-akari <akari.ccino@gmail.com>",
+    "license": "MIT",
+    "keywords": [
+        "lrc",
+        "lrc parser"
+    ],
+    "bugs": "https://github.com/lrc-maker/lrc-parser/issues",
+    "homepage": "https://github.com/lrc-maker/lrc-parser#readme",
+    "main": "./build/es5/lrc-parser.js",
+    "umd:main": "./build/umd/lrc-parser.js",
+    "module": "./build/esm/lrc-parser.js",
+    "browser": "./build/es5/lrc-parser.min.js",
+    "types": "./build/esm/lrc-parser.d.ts",
+    "files": [
+        "src",
+        "build"
+    ],
+    "type": "module",
+    "packageManager": "pnpm@7.26.0",
+    "scripts": {
+        "build": "pnpm run esm && pnpm run rollup",
+        "esm": "tsc --outDir build/esm",
+        "rollup": "rollup -c",
+        "test": "deno test --allow-read test",
+        "fmt": "dprint fmt",
+        "listdiff": "dprint check",
+        "lint": "eslint \"src/**/*.ts\""
+    },
+    "devDependencies": {
+        "@typescript-eslint/eslint-plugin": "^5.57.0",
+        "@typescript-eslint/parser": "^5.57.0",
+        "dprint": "^0.35.3",
+        "eslint": "^8.37.0",
+        "eslint-config-akari": "^0.0.6",
+        "eslint-config-prettier": "^8.8.0",
+        "rollup": "^3.20.2",
+        "rollup-plugin-typescript2": "^0.34.1",
+        "tslib": "^2.5.0",
+        "typescript": "^5.0.2"
+    },
+    "publishConfig": {
+        "access": "public"
+    }
+}

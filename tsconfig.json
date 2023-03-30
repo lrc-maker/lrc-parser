@@ -1,0 +1,21 @@
+{
+    "compilerOptions": {
+        "target": "es2018",
+        "module": "esnext",
+        "lib": [
+            "esnext"
+        ],
+        "outDir": "./build",
+        "rootDir": "./src",
+        "removeComments": true,
+        "downlevelIteration": true,
+        "strict": true,
+        "sourceMap": true,
+        "declaration": true,
+        "declarationMap": true,
+        "skipLibCheck": true
+    },
+    "include": [
+        "src"
+    ]
+}

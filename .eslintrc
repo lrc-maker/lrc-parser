@@ -1,0 +1,23 @@
+{
+    "root": true,
+    "parserOptions": {
+        "project": "./tsconfig.json"
+    },
+    "parser": "@typescript-eslint/parser",
+    "plugins": [
+        "@typescript-eslint"
+    ],
+    "extends": [
+        "eslint:recommended",
+        "akari",
+        "plugin:@typescript-eslint/recommended",
+        "plugin:@typescript-eslint/recommended-requiring-type-checking",
+        "plugin:@typescript-eslint/strict",
+        "akari/typescript",
+        "prettier"
+    ],
+    "ignorePatterns": [
+        "**/*.js",
+        "!src/*.js"
+    ]
+}
